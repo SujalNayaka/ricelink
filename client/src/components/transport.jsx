@@ -24,7 +24,7 @@ const Transport = () => {
       }
       
       try {
-        const res = await fetch('http://localhost:5004/transportservices', {
+        const res = await fetch('https://ricelink-server.onrender.com/transportservices', {
           method: 'post', 
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -46,7 +46,7 @@ const Transport = () => {
     }
     
     try {
-      const res = await fetch('http://localhost:5004/logisticorders', {
+      const res = await fetch('https://ricelink-server.onrender.com/logisticorders', {
         method: 'post', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -68,7 +68,7 @@ const Transport = () => {
         currentlocation:e.target.closest('.order').querySelector('#currentlocation').value,
         }
          
-        const res = await fetch('http://localhost:5004/accepttransportorder', {
+        const res = await fetch('https://ricelink-server.onrender.com/accepttransportorder', {
           method: 'post',
           body: JSON.stringify(data),
           headers: {
@@ -90,7 +90,7 @@ const Transport = () => {
        regno:e.target.closest('.order').querySelector('#lorryno').value,
         currentlocation:e.target.closest('.order').querySelector('#currentlocation').value,
         }
-       const res = await fetch('http://localhost:5004/rejecttransportorder', {
+       const res = await fetch('https://ricelink-server.onrender.com/rejecttransportorder', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {

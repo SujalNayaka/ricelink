@@ -37,7 +37,7 @@ const Profile = () => {
         search = 'transportservices'
        }
 
-        const res = await fetch(`http://localhost:5004/${search}`, {
+        const res = await fetch(`https://ricelink-server.onrender.com/${search}`, {
           method: 'post', 
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -58,7 +58,7 @@ const Profile = () => {
     }
     
     try {
-      const res = await fetch('http://localhost:5004/mypayments', {
+      const res = await fetch('https://ricelink-server.onrender.com/mypayments', {
         method: 'post', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

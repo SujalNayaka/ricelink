@@ -17,7 +17,7 @@ const Bookings = () => {
       clientname: sessionStorage.getItem('current-users'),
       clientmail: sessionStorage.getItem('current-users-mail')
   }
-  const res = await fetch('http://localhost:5004/mybookings', {
+  const res = await fetch('https://ricelink-server.onrender.com/mybookings', {
     method: 'post',
     body: JSON.stringify(data),
     headers: {
@@ -47,7 +47,7 @@ const Bookings = () => {
     _id:e.target.closest('.booking').querySelector('.id').innerText
     }
 
-    const res = await fetch('http://localhost:5004/payment', {
+    const res = await fetch('https://ricelink-server.onrender.com/payment', {
      method: 'post',
      body: JSON.stringify(data),
      headers: {
@@ -75,7 +75,7 @@ const Bookings = () => {
       _id: e.target.closest('.booking').querySelector('.id').innerText      
       }
        
-      const res = await fetch('http://localhost:5004/recievedorder', {
+      const res = await fetch('https://ricelink-server.onrender.com/recievedorder', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {

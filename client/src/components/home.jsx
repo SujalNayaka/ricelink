@@ -35,7 +35,7 @@ const Home = () => {
       }
       
       try {
-        const res = await fetch('http://localhost:5004/loginusers', {
+        const res = await fetch('https://ricelink-server.onrender.com/loginusers', {
           method: 'post', 
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -52,7 +52,7 @@ const Home = () => {
 
 
  const handlefetchproviders=async()=>{
-  const allproviders = await fetch('http://localhost:5004/allproviders',{headers:{accept:'application/json'}}) 
+  const allproviders = await fetch('https://ricelink-server.onrender.com/allproviders',{headers:{accept:'application/json'}}) 
   const allproviders1 = await allproviders.json();
   
   setAllproviders(allproviders1)
@@ -78,7 +78,7 @@ const Home = () => {
       code:'No code'
     }
   
-     const res = await fetch('http://localhost:5004/bookings', {
+     const res = await fetch('https://ricelink-server.onrender.com/bookings', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {

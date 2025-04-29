@@ -194,7 +194,7 @@ const Login = () => {
         endpoint = 'logintransport';
       }
       
-      const alllogin = fetch(`http://localhost:5004/${endpoint}`, {
+      const alllogin = fetch(`https://ricelink-server.onrender.com/${endpoint}`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         credentials: 'include',
@@ -247,7 +247,7 @@ const Login = () => {
     }
     else {
 
-      const signupreq = await fetch('http://localhost:5004/signup', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(signup) })
+      const signupreq = await fetch('https://ricelink-server.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(signup) })
 
       const resdata = await signupreq.json();
       console.log(resdata)
@@ -285,7 +285,7 @@ const Login = () => {
       stock:signupservices.stock,
 
     }
-    const signupservice = await fetch(`http://localhost:5004/signupservice`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
+    const signupservice = await fetch(`https://ricelink-server.onrender.com/signupservice`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
     const resdata = await signupservice.json();
 
     if (resdata.message == 'Success') {
@@ -321,7 +321,7 @@ const Login = () => {
       price: signuptransport.price,
       District: signuptransport.District
     }
-    const signupservice = await fetch(`http://localhost:5004/signuptransport`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
+    const signupservice = await fetch(`https://ricelink-server.onrender.com/signuptransport`, { method: 'post', headers: { "Content-Type": "application/json" }, credentials: 'include', body: JSON.stringify(data) })
     const resdata = await signupservice.json();
 
     if (resdata.message == 'Success') {

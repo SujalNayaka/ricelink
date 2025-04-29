@@ -38,7 +38,7 @@ const Serviceprovider = () => {
       }
       
       try {
-        const res = await fetch('http://localhost:5004/signinservices', {
+        const res = await fetch('https://ricelink-server.onrender.com/signinservices', {
           method: 'post', 
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -60,7 +60,7 @@ const Serviceprovider = () => {
     }
     
     try {
-      const res = await fetch('http://localhost:5004/orders', {
+      const res = await fetch('https://ricelink-server.onrender.com/orders', {
         method: 'post', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -75,7 +75,7 @@ const Serviceprovider = () => {
      }
 
      const handlelogistics = async(e)=>{
-      const allproviders = await fetch('http://localhost:5004/logistics',{headers:{accept:'application/json'}}) 
+      const allproviders = await fetch('https://ricelink-server.onrender.com/logistics',{headers:{accept:'application/json'}}) 
       const allproviders1 = await allproviders.json();
       
       setLogistics(allproviders1)
@@ -100,7 +100,7 @@ const Serviceprovider = () => {
         
         }
          
-        const res = await fetch('http://localhost:5004/acceptorder', {
+        const res = await fetch('https://ricelink-server.onrender.com/acceptorder', {
           method: 'post',
           body: JSON.stringify(data),
           headers: {
@@ -120,7 +120,7 @@ const Serviceprovider = () => {
         const data = {
          _id: e.target.closest('.order').querySelector('.orderid').innerText
          }
-         const res = await fetch('http://localhost:5004/rejectorder', {
+         const res = await fetch('https://ricelink-server.onrender.com/rejectorder', {
           method: 'post',
           body: JSON.stringify(data),
           headers: {
@@ -141,7 +141,7 @@ const Serviceprovider = () => {
         _id: userdet.loogedin._id
        }
 
-       const res = await fetch('http://localhost:5004/setonline', {
+       const res = await fetch('https://ricelink-server.onrender.com/setonline', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {
@@ -165,7 +165,7 @@ const Serviceprovider = () => {
         _id: userdet.loogedin._id
        }
 
-       const res = await fetch('http://localhost:5004/setoffline', {
+       const res = await fetch('https://ricelink-server.onrender.com/setoffline', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {
@@ -189,7 +189,7 @@ const Serviceprovider = () => {
           _id:userdet.loogedin._id,
            stock: e.target.closest('.milldet').querySelector('input').value
         }
-        const res = await fetch('http://localhost:5004/stockedit', {
+        const res = await fetch('https://ricelink-server.onrender.com/stockedit', {
           method: 'post',
           body: JSON.stringify(data),
           headers: {
@@ -211,7 +211,7 @@ const Serviceprovider = () => {
         _id:userdet.loogedin._id,
          price: e.target.closest('.milldet').querySelector('input').value
       }
-      const res = await fetch('http://localhost:5004/priceedit', {
+      const res = await fetch('https://ricelink-server.onrender.com/priceedit', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {
@@ -249,7 +249,7 @@ const Serviceprovider = () => {
     logimail:e.target.closest('.logisticdet').querySelector('.logimail').innerText
     }
 
-     const res = await fetch('http://localhost:5004/booklogistics', {
+     const res = await fetch('https://ricelink-server.onrender.com/booklogistics', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
