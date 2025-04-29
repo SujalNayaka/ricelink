@@ -343,7 +343,7 @@ const Serviceprovider = () => {
                         ):(<></>)
                       }
                       {
-                        order.logisticstatus==='Pending'?
+                        order.logistics==='Pending'?
                         (<button className='logisticsbtn' onClick={handlelogistics}>Notify Logistics</button>):(<></>)
                       }
 
