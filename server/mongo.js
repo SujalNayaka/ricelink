@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/mydatabase').then(() => {
+mongoose.connect('mongodb+srv://Tarun2:ErHBBKbj21JAUBpu@cluster0.9ufjebs.mongodb.net/destinations?retryWrites=true&w=majority&appName=Cluster0/').then(() => {
     console.log('Connected to local MongoDB');
 }).catch(() => {
     console.log("Error connecting to local MongoDB");
