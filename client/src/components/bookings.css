@@ -1,0 +1,78 @@
+.yourbookings{
+    width: 90vw;
+    margin: auto;
+    top: 1vw;
+    position: relative;
+}
+
+.booking{
+    font-size: 1.2vw;
+    font-family: 'Inter';
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.booking h4{
+    margin: 0;
+}
+
+.bookingdet{
+    margin: 0.4vw;
+}
+
+.booking button{
+    color: black;
+    font-family: 'Inter';
+    font-weight: 500;
+    cursor: pointer;
+   
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2vw;
+    box-sizing: border-box;
+    padding: 5px;
+   background-color: #95ff99;
+   position: relative;
+   left: 85%;
+}
+.booking button:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.card-det{
+    height: 15vw;
+    width: 80%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.confirmpayment{
+    accent-color: #6EE7B7;
+    width: 40%;
+    margin-right: 1vw;
+}
+
+.confirm{
+    display: flex;
+    align-items: center;
+}
+@media screen and (min-width: 300px) {
+    @media screen and (max-width: 600px) {
+        .booking{
+            font-size: 3.5vw;
+        }
+    }}
+
+    @media screen and (min-width:760px) {
+        @media screen and (max-width:1024px) {
+            .booking{
+                font-size: 3.5vw;
+            }
+        }}

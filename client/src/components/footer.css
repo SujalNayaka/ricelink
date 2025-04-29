@@ -1,0 +1,30 @@
+.site-footer {
+    background-color: #1e1e1e;
+    color: #cccccc;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+    top: 30vh;
+  }
+  
+  .site-footer .brand-name {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .site-footer .footer-links {
+    margin-top: 10px;
+  }
+  
+  .site-footer .footer-links a {
+    color: #cccccc;
+    margin: 0 8px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .site-footer .footer-links a:hover {
+    color: #ffffff;
+  }
+  

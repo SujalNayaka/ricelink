@@ -1,0 +1,189 @@
+
+body{
+    margin: 0;
+    padding: 0;
+   overflow-x: hidden;    
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.success{
+  
+    margin: auto;
+    text-align: center;
+    font-size: 1.3vw;
+    position: sticky;
+    font-family: 'Inter';
+}
+
+#success{
+    width: 40vw;
+    font-weight: 500;
+    font-size: 1.2vw;
+    font-family: 'Inter';
+    color: white;
+    background-color: #6EE7B7;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    top: 5vw;
+    position: sticky;
+    left: 30vw;
+    text-align: center;
+    opacity: 1;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#failure{
+    background-color: #ff6868;
+    width: 100vw;
+    top: 5vw;
+
+}
+
+#signinwarn{
+    background-color: #ff6868;
+    width: 100vw; 
+}
+
+.search{
+    display: flex;
+        width: 90vw;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 2vw;
+}
+
+.search input{
+    width: 40%;
+}
+
+.milldatas{
+    width: 80%;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-size: 1.2vw;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.milldetails{
+    width: 60%;
+}
+.milldata{
+    margin: 0.5vw;
+}
+
+.bidding{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.bidding input{
+    width: 50%;
+}
+.bidding button{
+    color: black;
+    font-family: 'Inter';
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1vw;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2vw;
+    box-sizing: border-box;
+    padding: 5px;
+   background-color: #95ff99;
+   width: 20%;
+}
+
+.bidding button:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+@media screen and (min-width: 300px) {
+    @media screen and (max-width: 600px) {
+        .success{
+            font-size: 4vw;
+        }
+        #success{
+            top: 10vw;
+            font-size: 4vw;
+        }
+        #failure{
+            top: 10vw;
+            font-size: 4vw;
+        }
+        .search{
+            flex-direction: column;
+        }
+        .search input{
+            width: 100%;
+            margin-bottom: 2vw;
+        }
+        .milldatas{
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 90%;
+            font-size: 4vw;
+        }
+        .milldetails{
+            width: 100%;
+        }
+        .bidding{
+            width: 100%;
+        }
+        .bidding button{
+            font-size: 4vw;
+        }
+    }}
+
+    @media screen and (min-width:760px) {
+        @media screen and (max-width:1024px) {
+            .success{
+                font-size: 4vw;
+            }
+            #success{
+                top: 10vw;
+                font-size: 4vw;
+            }
+            #failure{
+                top: 10vw;
+                font-size: 4vw;
+            }
+            .search{
+                flex-direction: column;
+            }
+            .search input{
+                width: 100%;
+                margin-bottom: 2vw;
+            }
+            .milldatas{
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 90%;
+                font-size: 4vw;
+            }
+            .milldetails{
+                width: 100%;
+            }
+            .bidding{
+                width: 100%;
+            }
+            .bidding button{
+                font-size: 4vw;
+            }
+        }}    

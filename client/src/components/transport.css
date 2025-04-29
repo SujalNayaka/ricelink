@@ -1,0 +1,25 @@
+.lorrydet{
+    display: flex
+    ;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+.lorrydet input{
+    width: 40%;
+}
+
+
+@media screen and (min-width: 300px) {
+    @media screen and (max-width: 600px) {
+        .lorrydet input{
+            width: 100%;
+        }
+    }}
+
+    @media screen and (min-width:760px) {
+        @media screen and (max-width:1024px) {
+            .lorrydet input{
+                width: 100%;
+            } 
+        }}
