@@ -120,6 +120,9 @@ const Home = () => {
             <h4>Connecting Rice Mills to Customers</h4>
             <h6>Helping rice mills find more customers and build lasting partnerships, one grain at a time.</h6>
             
+          
+
+
         </div>
 
       <div className="search">
@@ -129,6 +132,18 @@ const Home = () => {
         
 
         <div className="note">Mills that matched your Query.</div>
+
+
+        <div style="padding: 40px 20px; background-color: #ffffff; text-align: center; border-top: 1px solid #ddd;">
+  <h2 style="font-size: 1.8em; color: #222;">Why Choose Us?</h2>
+  <div style="max-width: 800px; margin: 20px auto; font-size: 1.1em; color: #555;">
+    <p><strong>✔ One-Stop Platform:</strong> Whether you're a rice mill owner, buyer, or transporter – everything you need is in one place.</p>
+    <p><strong>✔ Verified Services:</strong> We list only verified rice mills and transport partners to ensure safety and quality.</p>
+    <p><strong>✔ Real-Time Availability:</strong> View live stock, pricing, and transport capacity before making a deal.</p>
+    <p><strong>✔ Transparent Pricing:</strong> No hidden costs – know exactly what you're paying for, always.</p>
+    <p><strong>✔ Easy to Use:</strong> Simple interface built for rural and urban users alike, with local language support coming soon.</p>
+  </div>
+</div>
 
       {
        allproviders && allproviders
