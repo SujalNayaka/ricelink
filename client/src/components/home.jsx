@@ -134,16 +134,7 @@ const Home = () => {
         <div className="note">Mills that matched your Query.</div>
 
 
-        <div style="padding: 40px 20px; background-color: #ffffff; text-align: center; border-top: 1px solid #ddd;">
-  <h2 style="font-size: 1.8em; color: #222;">Why Choose Us?</h2>
-  <div style="max-width: 800px; margin: 20px auto; font-size: 1.1em; color: #555;">
-    <p><strong>✔ One-Stop Platform:</strong> Whether you're a rice mill owner, buyer, or transporter – everything you need is in one place.</p>
-    <p><strong>✔ Verified Services:</strong> We list only verified rice mills and transport partners to ensure safety and quality.</p>
-    <p><strong>✔ Real-Time Availability:</strong> View live stock, pricing, and transport capacity before making a deal.</p>
-    <p><strong>✔ Transparent Pricing:</strong> No hidden costs – know exactly what you're paying for, always.</p>
-    <p><strong>✔ Easy to Use:</strong> Simple interface built for rural and urban users alike, with local language support coming soon.</p>
-  </div>
-</div>
+      
 
       {
        allproviders && allproviders
@@ -177,6 +168,49 @@ const Home = () => {
           )
         })
       }
+
+<div className="whyus">
+            <h4>Why Choose Us?</h4>
+            {/* <h6>We’re committed to making your service experience simple, reliable, and hassle-free. Here’s what sets us apart:</h6> */}
+           <div className="whyusdet">
+                <div className="whyuscontainer">
+                    <div className="whyusimg"><img src="professional.jpg" alt="" /></div>
+                    <div className="whyustext">Verified Professionals</div>
+                    <div className="whyusdesc">All service providers are background-checked and vetted for reliability.</div>
+                </div>
+                <div className="whyuscontainer">
+                    <div className="whyusimg"><img src="booking.jpg" alt="" /></div>
+                    <div className="whyustext"> Fast & Easy Booking</div>
+                    <div className="whyusdesc">Book your service in seconds with a simple and intuitive interface.</div>
+                </div>
+                <div className="whyuscontainer">
+                    <div className="whyusimg"><img src="satisfaction.jpg" alt="" /></div>
+                    <div className="whyustext"> Satisfaction Guarantee</div>
+                    <div className="whyusdesc">We’re not happy unless you are. We’ll make it right—every time.</div>
+                </div>
+                
+                <div className="whyuscontainer">
+                    <div className="whyusimg"><img src="pricing.jpg" alt="" /></div>
+                    <div className="whyustext"> Transparent Pricing</div>
+                    <div className="whyusdesc">Know exactly what you’ll pay—no surprises or hidden fees.</div>
+                </div>
+
+                <div className="whyuscontainer">
+                    <div className="whyusimg"><img src="payment.jpg" alt="" /></div>
+                    <div className="whyustext"> Secure Payments</div>
+                    <div className="whyusdesc">Safe payment options to protect your personal and financial data.</div>
+                </div>
+
+                <div className="whyuscontainer">
+                    <div className="whyusimg"><img src="customercare.jpg" alt="" /></div>
+                    <div className="whyustext">24/7 Customer Support</div>
+                    <div className="whyusdesc">Need help? Our support team is here for you anytime, day or night.</div>
+                </div>
+
+                
+           </div>
+        </div>
+
       <Footer/>
     </>
   )
