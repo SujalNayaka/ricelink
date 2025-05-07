@@ -2,18 +2,39 @@
     font-size: 3vw;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    text-align: center;
+    /* text-align: center; */
     margin: 5vw auto;
     color: 	#1F2937;
+    display: flex
+    ;
+        align-items: center;
+        justify-content: flex-start;
 }
 
 .heading h4{
     margin: 1vw;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 .heading h6{
     margin: 0;
-    color: #6bd9a6;
+    /* color: #6bd9a6; */
+    color: #00BFFF;
+    /* animation: fadein 1s 1 ease-in-out linear; */
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    position: relative;
+}
+
+@keyframes fadein {
+    0%{
+        opacity: 0;
+        top: 2vw;
+    }
+    100%{
+        opacity:1;
+        top: 0vw;
+    }
 }
 
 .personaldata{

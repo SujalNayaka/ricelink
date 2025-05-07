@@ -21,6 +21,7 @@ function App() {
       <Route path='/transport' element={<Transport/>}/>
      <Route path='/bookings' element={<Bookings/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      {/* <Route path='' element/> */}
       {/* <Route path='/transportprovider' element={<Transportprovider/>}/> */}
     </Routes>
     </BrowserRouter>

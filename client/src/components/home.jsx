@@ -19,13 +19,13 @@ const Home = () => {
     if(sessionStorage.getItem('isloggedin')=='true'){
       handlefetchproviders();
       handleuser();
-      document.getElementById('signinwarn').style.display = 'none'
+      // document.getElementById('signinwarn').style.display = 'none'
 
     }
 
-    else{
-      document.getElementById('signinwarn').style.display = 'block'
-    }
+    // else{
+    //   document.getElementById('signinwarn').style.display = 'block'
+    // }
     },[])
 
     const handleuser =async()=>{
@@ -117,8 +117,8 @@ const Home = () => {
       <div className="success" id='signinwarn' style={{display:'none'}}>Please sign in to use the service.</div>
 
       <div className="heading">
-            <h4>Connecting Rice Mills to Customers</h4>
-            <h6>Helping rice mills find more customers and build lasting partnerships, one grain at a time.</h6>
+      <h4>Your Trusted Rice Mill Network</h4>
+      <h6>one grain at a time.</h6>
             
           
 
@@ -131,7 +131,7 @@ const Home = () => {
       </div>
         
 
-        <div className="note">Mills that matched your Query.</div>
+        <div className="note">Rice Mill Service Providers.</div>
 
 
       
@@ -168,10 +168,10 @@ const Home = () => {
           )
         })
       }
-
+{/* 
 <div className="whyus">
             <h4>Why Choose Us?</h4>
-            {/* <h6>We’re committed to making your service experience simple, reliable, and hassle-free. Here’s what sets us apart:</h6> */}
+            
            <div className="whyusdet">
                 <div className="whyuscontainer">
                     <div className="whyusimg"><img src="professional.jpg" alt="" /></div>
@@ -209,7 +209,7 @@ const Home = () => {
 
                 
            </div>
-        </div>
+        </div> */}
 
       <Footer/>
     </>

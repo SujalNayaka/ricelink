@@ -2,7 +2,8 @@
 body{
     margin: 0;
     padding: 0;
-   overflow-x: hidden;    
+   overflow-x: hidden;   
+   /* background-color: #121212;  */
 }
 body::-webkit-scrollbar{
     display: none;
@@ -55,10 +56,13 @@ body::-webkit-scrollbar{
         align-items: center;
         margin: auto;
         margin-bottom: 2vw;
+        flex-direction: column;
 }
 
 .search input{
     width: 40%;
+    margin-bottom: 2vw;
+
 }
 
 .milldatas{

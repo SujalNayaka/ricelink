@@ -132,7 +132,8 @@ input{
     font-size:1.5vw ;
     outline: none;
     border: none;
-    background-color: #6EE7B7;
+    /* background-color: #6EE7B7; */
+    background-color: #00BFFF;
     color: #fff;
     font-family: nunito;
     font-family: "Nunito", sans-serif;

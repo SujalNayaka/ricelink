@@ -75,7 +75,7 @@ const Navbar = () => {
 
   return (
     <div className='navbar'>
-      <div className="head">RiceLink </div>
+      <div className="head">Grain Works </div>
       <div className="selbtns">
         <button onClick={handlehome}>Home</button>
        <button id='signinbtn'>Sign In</button>

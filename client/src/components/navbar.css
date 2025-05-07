@@ -15,7 +15,7 @@
 .head{
     width: 20%;
     text-align: center;
-    font-weight: 400;
+    font-weight: 800;
 }
 .selbtns{
     display: flex;
@@ -27,17 +27,18 @@
 .selbtns button{
     font-size: 1vw;
     font-family: 'Inter';
-    border-radius: 15px;
+    border-radius: 5px;
     border: none;
     font-weight: 500;
     box-sizing: border-box;
     padding: 6px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); */
     cursor: pointer;
+    background-color: transparent;
 }
 .selbtns button:hover{
-    background-color: #6EE7B7;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #00BFFF;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     transition: all 0.2s ease-in-out;
     transform: translateY(-2px);
     color: white;
