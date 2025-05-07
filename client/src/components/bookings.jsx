@@ -96,7 +96,7 @@ const Bookings = () => {
       <Navbar/>
 
       <div className="heading">
-            <h4>Manage Your Bookings with Ease.</h4>
+            {/* <h4>Manage Your Bookings with Ease.</h4> */}
             <h6>Check status, provider responses, and service details anytime.</h6>
             
         </div>
@@ -109,11 +109,11 @@ const Bookings = () => {
               <h4 style={{margin:'0.5vw 0'}}>Order Summary</h4>
               <div className="id">{order._id}</div>
               
-              <div className="bookingdet"><h4>{order.district} Rice Mill</h4></div>
+              <div className="bookingdet"><h4>{order.servicename}</h4></div>
               <div className="servicename" style={{display:'none'}}>{order.district}</div>
               <div className="bookingdet">Provider: {order.serviceusername}</div>
-              <div className="bookingdet">Mail at: {order.servicemail}</div>
-              <div className="bookingdet">Call Us: {order.servicephone}</div>
+              <div className="bookingdet">Mail: {order.servicemail}</div>
+              <div className="bookingdet">Call: {order.servicephone}</div>
               <div className="bookingdet">Product: {order.product}</div>
               <div className="bookingdet">{order.quantity} Tonnes.</div>
               <div className="bookingdet">Your Bid: Rs {order.bidprice}/- per Tonne</div>

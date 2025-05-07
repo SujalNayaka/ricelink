@@ -131,7 +131,7 @@ const Login = () => {
 
     document.getElementById('wrongpass').style.display = 'none'
     document.getElementById('loginbtn').innerText = 'Log In'
-    document.getElementById('loginbtn').style.backgroundColor = '#6EE7B7'
+    document.getElementById('loginbtn').style.backgroundColor = '#00BFFF'
     document.getElementById('loginbtn').style.zIndex = '1'
 
 
@@ -144,7 +144,7 @@ const Login = () => {
     setSignup({ ...signup, [name]: value })
 
     document.getElementById('signupbtn').style.zIndex = '0'
-    document.getElementById('signupbtn').style.backgroundColor = '#6EE7B7'
+    document.getElementById('signupbtn').style.backgroundColor = '#00BFFF'
     document.getElementById('signupbtn').innerText = 'Sign Up'
     document.getElementById('wrongnewpass').style.display = 'none'
   }
@@ -173,7 +173,7 @@ const Login = () => {
     else {
 
       document.getElementById('loginbtn').innerText = 'Log In ...'
-      document.getElementById('loginbtn').style.backgroundColor = '#6EE7B7'
+      document.getElementById('loginbtn').style.backgroundColor = '#00BFFF'
       document.getElementById('loginbtn').style.zIndex = '-1'
 
 
@@ -225,7 +225,7 @@ const Login = () => {
         } else {
           document.getElementById('wrongpass').style.display = 'initial';
           document.getElementById('loginbtn').innerText = 'Log In';
-          document.getElementById('loginbtn').style.backgroundColor = '#6EE7B7';
+          document.getElementById('loginbtn').style.backgroundColor = '#00BFFF';
           document.getElementById('loginbtn').style.zIndex = '1';
         }
       });
@@ -235,7 +235,7 @@ const Login = () => {
 
   const submitSignup = async () => {
     document.getElementById('signupbtn').style.zIndex = '-1'
-    document.getElementById('signupbtn').style.backgroundColor = '#6EE7B7'
+    document.getElementById('signupbtn').style.backgroundColor = '#00BFFF'
     document.getElementById('signupbtn').innerText = 'Sign Up...'
 
     if (signup.username == '' || signup.password == '') {
@@ -267,7 +267,7 @@ const Login = () => {
 
   const submitserviceSignup = async () => {
     document.getElementById('signupbtn').style.zIndex = '-1'
-    document.getElementById('signupbtn').style.backgroundColor = '#6EE7B7'
+    document.getElementById('signupbtn').style.backgroundColor = '#00BFFF'
     document.getElementById('signupbtn').innerText = 'Sign Up...'
 
     const data = {
@@ -305,7 +305,7 @@ const Login = () => {
   
   const submittransportSignup = async () => {
     document.getElementById('signupbtn').style.zIndex = '-1'
-    document.getElementById('signupbtn').style.backgroundColor = '#6EE7B7'
+    document.getElementById('signupbtn').style.backgroundColor = '#00BFFF'
     document.getElementById('signupbtn').innerText = 'Sign Up...'
 
     const data = {
@@ -490,9 +490,9 @@ const Login = () => {
 
       {/* // welcome back animation */}
       <div id='welcomebackcont'>
-        <div className="celebration1">
+        {/* <div className="celebration1">
           <iframe id='celebration' src="https://lottie.host/embed/503bed59-c29d-46eb-935d-a996c60858a3/geOsLMBMTf.lottie" frameborder="0"></iframe>
-        </div>
+        </div> */}
         <p className='welcomeback'>Welcome Back {user.username} !</p>
         <button className='navbtn1'  ><Link to={'/'}>Home</Link></button>
       </div>
@@ -501,28 +501,28 @@ const Login = () => {
       {/* // welcome back provider animation */}
 
       <div id='welcomebackprovidercont'>
-        <div className="celebration1">
+        {/* <div className="celebration1">
           <iframe id='celebration' src="https://lottie.host/embed/503bed59-c29d-46eb-935d-a996c60858a3/geOsLMBMTf.lottie" frameborder="0"></iframe>
-        </div>
+        </div> */}
         <p className='welcomeback'>Welcome Back {user.username} !</p>
         <button className='navbtn1'  ><Link to={'/serviceprovider'}>Home</Link></button>
       </div>
 
       <div id='welcomebacktransportcont'>
-        <div className="celebration1">
+        {/* <div className="celebration1">
           <iframe id='celebration' src="https://lottie.host/embed/503bed59-c29d-46eb-935d-a996c60858a3/geOsLMBMTf.lottie" frameborder="0"></iframe>
-        </div>
+        </div> */}
         <p className='welcomeback'>Welcome Back {user.username} !</p>
         <button className='navbtn1'  ><Link to={'/transport'}>Home</Link></button>
       </div>
 
       {/* // new user animation */}
       <div id='newusercont'>
-        <div className="celebration">
+        {/* <div className="celebration">
           <iframe id='celebration' src="https://lottie.host/embed/d7852d0f-dbde-43f2-9223-9233d839e93f/9i7ZLGOPeC.lottie" frameborder="0"></iframe>
-        </div>
+        </div> */}
         <p className='welcomeback'>
-          Welcome to Commune! 🎉 <br />
+          Welcome to Grain Works! 🎉 <br />
           We're so glad you've joined us.</p>
         <button className='navbtn1'  ><Link to={'/'}>Home</Link></button>
       </div>

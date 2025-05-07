@@ -147,7 +147,7 @@ const Home = () => {
           return (
             <div className="milldatas">
             <div className="milldetails">
-            <div className="milldata" ><h4>Name: {provider.District} Rice Mill</h4></div>
+            <div className="milldata" ><h4>Name: {provider.servicename}</h4></div>
             <div className="district" style={{display:'none'}}>{provider.District}</div>
             <div className="servicename" style={{display:'none'}}>{provider.username}</div>
             <div className="servicemail" style={{display:'none'}}>{provider.mail}</div>

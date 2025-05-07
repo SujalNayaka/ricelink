@@ -15,7 +15,7 @@ const Profile = () => {
     useEffect(()=>{
       
         handleuser();
-      handlepayhistory();
+      // handlepayhistory();
       
     },[])
 
@@ -77,7 +77,7 @@ const Profile = () => {
       <Navbar/>
 
       <div className="heading">
-            <h4>Welcome Back! Let’s Keep Your Info Up to Date.</h4>
+            {/* <h4>Welcome Back! Let’s Keep Your Info Up to Date.</h4> */}
             <h6>Edit your profile and stay connected with your services.</h6>
             
         </div>
@@ -85,12 +85,12 @@ const Profile = () => {
 <div className="userdata"> Personal Details
   <div className="user">Username: {userdet.loogedin.username}</div>
   <div className="user">Phone: {userdet.loogedin.phone}</div>
-  <div className="user">Mail: {userdet.loogedin.mail}</div>
+  {/* <div className="user">Mail: {userdet.loogedin.mail}</div> */}
   <div className="user">District: {userdet.loogedin.District}</div>
 </div>
 
-<div className="paymenthistory">  Payments History</div>
-<div className="payments">
+{/* <div className="paymenthistory">  Payments History</div> */}
+{/* <div className="payments">
 
    {
     payments&&payments? payments.map(payment=>{
@@ -105,7 +105,7 @@ const Profile = () => {
       )
     }):<>No Payments yet.</>
    }
-</div>
+</div> */}
 
 <Footer/>
     </>

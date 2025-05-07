@@ -136,54 +136,7 @@ const Serviceprovider = () => {
         }
      }
     
-     const handleonline= async(e)=>{
-       const data = {
-        _id: userdet.loogedin._id
-       }
-
-       const res = await fetch('https://ricelink-server.onrender.com/setonline', {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      const data1 = await res.json();
-      if(data1.message === 'Success'){
-          document.getElementById('availability').innerText = 'Status: Online'
-          // e.target.style.display = 'none'
-          // document.getElementById('offline').style.display = 'block'
-        setUserdet(prev=>({...prev,loogedin:{...prev.loogedin,available:true}}));
-
-      }else{
-          alert('Error')
-      }
-     }
-
-     const handleoffline= async(e)=>{
-      const data = {
-        _id: userdet.loogedin._id
-       }
-
-       const res = await fetch('https://ricelink-server.onrender.com/setoffline', {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      const data1 = await res.json();
-      if(data1.message === 'Success'){
-          document.getElementById('availability').innerText = 'Status: Offline'
-          // e.target.style.display = 'none'
-          // document.getElementById('online').style.display = 'block'
-        setUserdet(prev=>({...prev,loogedin:{...prev.loogedin,available:false}}));
-
-      }else{
-          alert('Error')
-      }
-     }
-
+    
      const handlestockedit = async(e)=>{
         const data = {
           _id:userdet.loogedin._id,
@@ -285,7 +238,7 @@ const Serviceprovider = () => {
 
       <div className="heading">
             <h4>View All the Services You've Been Booked For.</h4>
-            <h6>Stay updated and respond to customer requests quickly.</h6>
+            {/* <h6>Stay updated and respond to customer requests quickly.</h6> */}
             
         </div>
        
@@ -302,9 +255,9 @@ const Serviceprovider = () => {
           <div className="milldet">Price per Tonne: {userdet.loogedin.price} <button className='editbtns' onClick={handleedit}>Edit</button>
             <div className="editarea"> <input type="Number" placeholder='Stock size'/> <button className='editbtns' onClick={handlepriceedit}>Edit</button></div>
           </div>
-          <div className="milldet" id='availability'>Current Status: {userdet.loogedin.available? "Online" : "Offline"} </div>
+          {/* <div className="milldet" id='availability'>Current Status: {userdet.loogedin.available? "Online" : "Offline"} </div> */}
          <div className="available-buttons">
-         <button id='online' style={{backgroundColor:userdet.loogedin.available?'#ffb1b1':'#95ff99'}} onClick={userdet.loogedin.available?handleoffline:handleonline}>{userdet.loogedin.available? "Go Offline" : "Go Online"} </button>
+         {/* <button id='online' style={{backgroundColor:userdet.loogedin.available?'#ffb1b1':'#95ff99'}} onClick={userdet.loogedin.available?handleoffline:handleonline}>{userdet.loogedin.available? "Go Offline" : "Go Online"} </button> */}
          {/* <button id='offline' onClick={handleoffline}>{userdet.loogedin.available? "Go Online" : "Go Offline"} </button> */}
          </div>
       </div>

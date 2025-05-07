@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="site-footer">
     <div className="footer-content">
-      <h2>© 2025 <span className="brand-name">RiceConnect</span>. All rights reserved.</h2>
+      <h2>© 2025 <span className="brand-name">Grain Works</span>. All rights reserved.</h2>
       {/* <p>
         Connecting rice mills, transporters, and customers across the country.<br />
         Empowering local producers with digital access and service visibility.
