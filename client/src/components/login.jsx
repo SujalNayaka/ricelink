@@ -16,7 +16,7 @@ const Login = () => {
   let [user, setUser] = useState({
     username: "",
     mail: "",
-    // role: "",
+    role: "",
     password: ""
   })
 
@@ -180,7 +180,7 @@ const Login = () => {
       const userdet = {
         username: user.username,
         mail: user.mail,
-        // role: user.role,
+        role: user.role,
         password: user.password
       }
       console.log(userdet)
@@ -371,7 +371,7 @@ const Login = () => {
             <input type="text" name='mail' value={user.mail} placeholder='E-mail' id='password' onChange={handleChange} />
 
 
-            {/* <div className="rolecont" id='rolecontsignin'>
+            <div className="rolecont" id='rolecontsignin'>
               <div className="selectdp-head">Log In As?</div>
               <input type="radio" name='role' value="Customer" id='rolec' onChange={handleChange} />
               <span>Customer</span>
@@ -379,7 +379,7 @@ const Login = () => {
               <span>Provider</span>
               <input type="radio" name='role' value="Transport" id='rolet' onChange={handleChange} />
               <span>Transport</span>
-            </div> */}
+            </div>
 
             <div className='signbtn-holder'>
               <button type='submit' className='submit-btn' id='loginbtn' onClick={() => { submit() }}>Log In</button>
