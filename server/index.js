@@ -1,487 +1,220 @@
-const express = require ('express');
+const express = require('express');
 const app = express();
-const cors = require ('cors')
-const bodyParser = require('body-parser')
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const port = 5004;
-const JWT_SECRET = "tarun@!%$(}<>#+-*/&%";
-
-const login = require('./mongo')
-const loginservices = require('./mongo')
-const transportservices = require('./mongo')
-const booking = require('./mongo')
-const payment = require('./mongo')
-const booklogistics = require('./mongo')
-
-
-
 const cookieParser = require('cookie-parser');
-app.use(cookieParser());
+const port = 5004;
 
+const login = require('./mongo');
+const loginservices = require('./mongo');
+const transportservices = require('./mongo');
+const booking = require('./mongo');
+const payment = require('./mongo');
+const booklogistics = require('./mongo');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'tarun@!%$(}<>#+-*/&%';
+
+app.use(cookieParser());
 app.use(cors({
-    origin: ['http://localhost:8000','https://ricelink.vercel.app'],
+    origin: ['http://localhost:8000', 'https://ricelink.vercel.app'],
     methods: ['GET', 'POST'],
     credentials: true,
 }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-const server = app.listen(port,() =>{
-    console.log(`listening on port ${port}`)
-})
-
-
-app.post('/login', async(req,res)=>{
-    const {username, mail ,password} = req.body;
-    
-    const loggedin = await login.login.findOne({username:username ,mail:mail})
-   // console.log(loggedin)
-    if(await bcrypt.compare(password, loggedin.password)){
-     const token = jwt.sign(
-       {username: username,mail:mail},
-       JWT_SECRET,
-       { expiresIn: '1h' }
-     );
-      res.cookie('token', token, {
-       httpOnly: true,      
-       secure: false,       
-       sameSite: 'Lax',
-       maxAge: 60 * 60 * 1000 
-     })
-     return res.json({loggedin:loggedin})
-    
-    }
-   })
-
-   app.post('/loginservices', async(req,res)=>{
-    const {username, mail ,password} = req.body;
-    
-    const loggedin = await loginservices.loginservices.findOne({username:username ,mail:mail})
-  
-    if(await bcrypt.compare(password, loggedin.password)){
-      console.log(loggedin.password)
-      const token = jwt.sign(
-        {username: username,mail:mail},
-        JWT_SECRET,
-        { expiresIn: '1h' }
-      );
-       res.cookie('token', token, {
-        httpOnly: true,      
-        secure: false,       
-        sameSite: 'Lax',
-        maxAge: 60 * 60 * 1000 
-      })
-      res.json({loggedin:loggedin})
-     }
-  
-})
-
-app.post('/logintransport', async(req,res)=>{
-  const {username, mail ,password} = req.body;
-  
-  const loggedin = await transportservices.transportservices.findOne({username:username ,mail:mail})
-
-  if(await bcrypt.compare(password, loggedin.password)){
-    console.log(loggedin.password)
-    const token = jwt.sign(
-      {username: username,mail:mail},
-      JWT_SECRET,
-      { expiresIn: '1h' }
-    );
-     res.cookie('token', token, {
-      httpOnly: true,      
-      secure: false,       
-      sameSite: 'Lax',
-      maxAge: 60 * 60 * 1000 
-    })
-    res.json({loggedin:loggedin})
-   }
-
-})
-
-app.get('/allproviders', async(req,res)=>{
-  const providers = await loginservices.loginservices.find();
-  res.json(providers)
-})
-
-app.get('/logistics', async(req,res)=>{
-  const providers = await transportservices.transportservices.find();
-  res.json(providers)
-})
-
-app.post('/signinservices',  async (req, res) => {
-  const { username, mail } = req.body;    
-  const loggedin = await loginservices.loginservices.findOne({
-    username: username,
-    mail: mail
-  });
-//  console.log(loggedin)
-  res.json({ loggedin: loggedin });
+const server = app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 });
 
-app.post('/transportservices',  async (req, res) => {
-  const { username, mail } = req.body;    
-  const loggedin = await transportservices.transportservices.findOne({
-    username: username,
-    mail: mail
-  });
-//  console.log(loggedin)
-  res.json({ loggedin: loggedin });
-});
-
-app.post('/loginusers',  async (req, res) => {
-  const { username, mail } = req.body;    
-  const loggedin = await login.login.findOne({
-    username: username,
-    mail: mail
-  });
-//  console.log(loggedin)
-  res.json({ loggedin: loggedin });
-});
-
-   app.post('/signup', async (req, res) => {
-   
-    const { username, phone, mail,role,password,District,address } = req.body;
-    const hashedpass =  await bcrypt.hash(password, 10)
+// Utility function to handle user signup and login logic
+const handleSignup = async (req, res, userType, model) => {
+    const { username, password, mail, role, ...otherData } = req.body;
     try {
+        const hashedPass = await bcrypt.hash(password, 10);
         let newUser = {
             username,
-            phone,
+            password: hashedPass,
             mail,
             role,
-password: hashedpass ,
-            District,
-            address
- };
-        await login.login.insertMany(newUser)
-
-        const token = jwt.sign(
-          {username: newUser.username, mail:mail},
-          JWT_SECRET,
-          { expiresIn: '1h' }
-        );
-        res
-        .cookie('token', token, {
-          httpOnly: true,      
-          secure: false,       
-          sameSite: 'Lax',
-          maxAge: 60 * 60 * 1000 
-        })
-        res.json({ message: 'Success' ,token});
-    } catch (error) {
-        console.log(error);
-    }
-
-})
-
-app.post('/signupservice', async (req, res) => {
-    const { username, password, mail,role, servicename, District, address, description, phone, stock,price } = req.body;
-    const hashedpass = await bcrypt.hash(password, 10);
-    
-        let newService ={
-            username,
-            password: hashedpass,
-            mail,
-            role,
-            servicename,
-            District,
-            address,
-            description,
-            phone,
-            price,
-            stock
+            ...otherData,
         };
-        await loginservices.loginservices.insertMany(newService)
+
+        await model.insertMany(newUser);
 
         const token = jwt.sign(
-          {username: newService.username , mail:mail},
-          JWT_SECRET,
-          { expiresIn: '1h' }
+            { username: newUser.username, mail: mail },
+            JWT_SECRET,
+            { expiresIn: '1h' }
         );
 
         res.cookie('token', token, {
-          httpOnly: true,      
-          secure: false,       
-          sameSite: 'Lax',
-          maxAge: 60 * 60 * 1000 
-        }).
-        json({
-          message: 'Success',
-          token
-        })
-})
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Lax',
+            maxAge: 60 * 60 * 1000,
+        });
 
-app.post('/signuptransport', async (req, res) => {
-  const { username, password, mail,role, servicename, District, address, description, phone, services,price } = req.body;
-  const hashedpass = await bcrypt.hash(password, 10);
-  
-      let newService ={
-          username,
-          password: hashedpass,
-          mail,
-          role,
-          servicename,
-          District,
-          address,
-          description,
-          phone,
-          price
-      };
-      await transportservices.transportservices.insertMany(newService)
-
-      const token = jwt.sign(
-        {username: newService.username , mail:mail},
-        JWT_SECRET,
-        { expiresIn: '1h' }
-      );
-
-      res.cookie('token', token, {
-        httpOnly: true,      
-        secure: false,       
-        sameSite: 'Lax',
-        maxAge: 60 * 60 * 1000 
-      }).
-      json({
-        message: 'Success',
-        token
-      })
-})
-
-
-app.post('/setonline', async(req,res)=>{
-  const data = {
-   _id: req.body._id
-  }
-  // console.log(data)
- const accept = await loginservices.loginservices.updateOne({_id:data._id},{$set:{available:true}})
-//  console.log(accept)
- if(accept.modifiedCount>0){
-  res.status(200).json({ message: 'Success' });
- }else{
-  res.status(400).json({ message: 'Error' });
- }
-})
-
-app.post('/setoffline', async(req,res)=>{
-  const data = {
-   _id: req.body._id
-  }
- const accept = await loginservices.loginservices.updateOne({_id:data._id},{$set:{available:false}})
- if(accept.modifiedCount>0){
-  res.status(200).json({ message: 'Success' });
- }else{
-  res.status(400).json({ message: 'Error' });
- }
-})
-
-
-app.post('/stockedit', async(req,res)=>{
-  const data = {
-   _id: req.body._id,
-   stock:req.body.stock
-  }
-  // console.log(data)
- const accept = await loginservices.loginservices.updateOne({_id:data._id},{$set:{stock:data.stock}})
-//  console.log(accept)
- if(accept.modifiedCount>0){
-  res.status(200).json({ message: 'Success' });
- }else{
-  res.status(400).json({ message: 'Error' });
- }
-})
-
-app.post('/priceedit', async(req,res)=>{
-  const data = {
-   _id: req.body._id,
-   price:req.body.price
-  }
-  // console.log(data)
- const accept = await loginservices.loginservices.updateOne({_id:data._id},{$set:{price:data.price}})
-//  console.log(accept)
- if(accept.modifiedCount>0){
-  res.status(200).json({ message: 'Success' });
- }else{
-  res.status(400).json({ message: 'Error' });
- }
-})
-
-app.post('/bookings', async(req,res)=>{
-  const data = {
-   address: req.body.address,
-   district: req.body.district,
-  product:req.body.product,
-  quantity:req.body.quantity,
-   serviceusername: req.body.serviceusername,
-   servicemail: req.body.servicemail,
-   servicephone: req.body.servicephone,
-   clientname: req.body.clientname,
-   clientphone: req.body.clientphone,
-   clientmail: req.body.clientmail,
-   status: req.body.status,
-   bidprice: req.body.bidprice,
-   paymentstatus:req.body.paymentstatus,
-   logistics: req.body.logistics,
-   code:req.body.code
-  }
- const booked = await booking.booking.insertMany(data)
- if(data.status.includes('Accepted')){
-  const update = await loginservices.loginservices.updateOne({mail:data.servicemail},{$inc:{stock:-data.quantity}})
- }
- res.status(200).json({ message: 'Success' });
-})
-
-app.post('/mybookings',  async (req, res) => {
-  const { clientname, clientmail } = req.body;    
-  const bookings = await booking.booking.find({
-    clientname: clientname,
-    clientmail: clientmail
-  });
-
-  res.json(bookings)
-})
-
-app.post('/payment', async(req,res)=>{
-  const data = {
-   bankname: req.body.bankname,
-   reciever: req.body.reciever,
-   accountno: req.body.accountno,
-   clientmail:req.body.clientmail,
-   amount:req.body.amount,
-   servicename:req.body.servicename,
-   _id:req.body._id.replace(/^S/, "")
-  }
- const payments = await payment.payment.insertMany(data)
- const update = await booking.booking.updateOne({_id:data._id},{$set:{paymentstatus:'Paid'}})
- res.status(200).json({ message: 'Success' });
-})
-
-app.post('/mypayments',  async (req, res) => {
-  const { clientmail } = req.body;    
-  const payments = await payment.payment.find({
-    clientmail: clientmail
-  });
-  // console.log(payments)
-
-  res.json(payments)
-})
-
-app.post('/orders',  async (req, res) => {
-  const { serviceusername,servicemail } = req.body;    
-  const orders = await booking.booking.find({
-    serviceusername: serviceusername,
-    servicemail:servicemail
-  });
-  // console.log(payments)
-
-  res.json(orders)
-})
-
-app.post('/acceptorder', async(req,res)=>{
-    const data = {
-     _id: req.body._id,
-     quantity:req.body.quantity
+        res.json({ message: 'Success', token });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
     }
-   const accept = await booking.booking.updateOne({_id:data._id},{$set:{status:'Accepted'}})
-   const update = await loginservices.loginservices.updateOne({mail:data.servicemail},{$inc:{stock:-data.quantity}})
-   if(accept.modifiedCount>0){
-    res.status(200).json({ message: 'Success' });
-   }else{
-    res.status(400).json({ message: 'Error' });
-   }
-  })
+};
 
-  app.post('/rejectorder', async(req,res)=>{
-    const data = {
-     _id: req.body._id
+// Login routes
+app.post('/login', async (req, res) => {
+    const { username, mail, password } = req.body;
+    try {
+        const loggedin = await login.login.findOne({ username, mail });
+        if (loggedin && await bcrypt.compare(password, loggedin.password)) {
+            const token = jwt.sign({ username, mail }, JWT_SECRET, { expiresIn: '1h' });
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'Lax',
+                maxAge: 60 * 60 * 1000,
+            });
+            return res.json({ loggedin });
+        }
+        res.status(400).json({ message: 'Invalid credentials' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
     }
-   const accept = await booking.booking.updateOne({_id:data._id},{$set:{status:'Rejected'}})
-   if(accept.modifiedCount>0){
-    res.status(200).json({ message: 'Success' });
-   }else{
-    res.status(400).json({ message: 'Error' });
-   }
-  })
+});
 
-
-  app.post('/recievedorder', async(req,res)=>{
-    const data = {
-     _id: req.body._id,
+// Services and Transport Login
+const loginServiceHandler = async (req, res, model) => {
+    const { username, mail, password } = req.body;
+    try {
+        const loggedin = await model.findOne({ username, mail });
+        if (loggedin && await bcrypt.compare(password, loggedin.password)) {
+            const token = jwt.sign({ username, mail }, JWT_SECRET, { expiresIn: '1h' });
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'Lax',
+                maxAge: 60 * 60 * 1000,
+            });
+            return res.json({ loggedin });
+        }
+        res.status(400).json({ message: 'Invalid credentials' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
     }
-   const accept = await booking.booking.updateOne({_id:data._id},{$set:{status:'Delivered'}})
-  //  const update = await loginservices.loginservices.updateOne({mail:data.servicemail},{$inc:{stock:-data.quantity}})
-   if(accept.modifiedCount>0){
-    res.status(200).json({ message: 'Success' });
-   }else{
-    res.status(400).json({ message: 'Error' });
-   }
-  })
+};
 
+app.post('/loginservices', (req, res) => loginServiceHandler(req, res, loginservices.loginservices));
+app.post('/logintransport', (req, res) => loginServiceHandler(req, res, transportservices.transportservices));
 
+// Signup routes
+app.post('/signup', (req, res) => handleSignup(req, res, 'user', login.login));
+app.post('/signupservice', (req, res) => handleSignup(req, res, 'service', loginservices.loginservices));
+app.post('/signuptransport', (req, res) => handleSignup(req, res, 'transport', transportservices.transportservices));
 
-  app.post('/booklogistics', async(req,res)=>{
-    const data = {
-     
-    product:req.body.product,
-    quantity:req.body.quantity,
-     servicename: req.body.servicename,
-    from:req.body.from,
-    to:req.body.to,
-    total:req.body.total,
-     orderid:req.body.orderid,
-     status:req.body.status,
-     loginame:req.body.loginame,
-     logimail:req.body.logimail
+// Update stock or price
+const updateField = async (req, res, fieldName, model) => {
+    const { _id, [fieldName]: value } = req.body;
+    try {
+        const update = await model.updateOne({ _id }, { $set: { [fieldName]: value } });
+        if (update.modifiedCount > 0) {
+            res.status(200).json({ message: 'Success' });
+        } else {
+            res.status(400).json({ message: 'Error' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
     }
-   const booked = await booklogistics.booklogistics.insertMany(data)
-  
-   res.status(200).json({ message: 'Success' });
-  })
+};
 
-  app.post('/logisticorders',  async (req, res) => {
-    const { serviceusername,servicemail } = req.body;    
-    const orders = await booklogistics.booklogistics.find({
-      loginame: serviceusername,
-      logimail:servicemail
-    });
-    // console.log(payments)
-  
-    res.json(orders)
-  })
+app.post('/stockedit', (req, res) => updateField(req, res, 'stock', loginservices.loginservices));
+app.post('/priceedit', (req, res) => updateField(req, res, 'price', loginservices.loginservices));
 
-  app.post('/accepttransportorder', async(req,res)=>{
-    const data = {
-     _id: req.body._id,
-     currentid:req.body.currentid,
-     regno:req.body.regno,
-     currentlocation:req.body.currentlocation
+// Order handling
+app.post('/bookings', async (req, res) => {
+    const data = req.body;
+    try {
+        const booked = await booking.booking.insertMany(data);
+        if (data.status.includes('Accepted')) {
+            await loginservices.loginservices.updateOne({ mail: data.servicemail }, { $inc: { stock: -data.quantity } });
+        }
+        res.status(200).json({ message: 'Success' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
     }
-    const code = data.regno.split('').reverse().join('')
-   const accept = await booking.booking.updateOne({_id:data._id},{$set:{logistics:(data.regno+","+data.currentlocation)}})
-   const update = await booking.booking.updateOne({_id:data._id},{$set:{code:`Share this code with our Driver ${code}`}})
-   const update2 = await booklogistics.booklogistics.updateOne({_id:data.currentid},{$set:{status:'Accepted'}})
-   if(update2.modifiedCount>0 && accept.modifiedCount>0){
-    res.status(200).json({ message: 'Success' });
-   }else{
-    res.status(400).json({ message: 'Error' });
-   }
-  })
+});
 
-  app.post('/rejecttransportorder', async(req,res)=>{
-    const data = {
-     _id: req.body._id,
-     currentid:req.body.currentid,
-     regno:req.body.regno,
-     currentlocation:req.body.currentlocation
+// Payments
+app.post('/payment', async (req, res) => {
+    const data = req.body;
+    try {
+        await payment.payment.insertMany(data);
+        await booking.booking.updateOne({ _id: data._id }, { $set: { paymentstatus: 'Paid' } });
+        res.status(200).json({ message: 'Success' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
     }
-    const code = data.regno.split('').reverse().join('')
-   const accept = await booking.booking.updateOne({_id:data._id},{$set:{logistics:'Rejected'}})
-   const update = await booking.booking.updateOne({_id:data._id},{$set:{code:''}})
-   const update2 = await booklogistics.booklogistics.updateOne({_id:data.currentid},{$set:{status:'Rejected'}})
-   if(update2.modifiedCount>0 && accept.modifiedCount>0){
-    res.status(200).json({ message: 'Success' });
-   }else{
-    res.status(400).json({ message: 'Error' });
-   }
-  })
+});
 
+// Orders and logistics
+app.post('/logisticorders', async (req, res) => {
+    const { serviceusername, servicemail } = req.body;
+    try {
+        const orders = await booklogistics.booklogistics.find({ loginame: serviceusername, logimail: servicemail });
+        res.json(orders);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
 
+// Accept/Reject Orders
+const updateOrderStatus = async (req, res, status) => {
+    const { _id, currentid, regno, currentlocation } = req.body;
+    const code = regno.split('').reverse().join('');
+    try {
+        const accept = await booking.booking.updateOne({ _id }, { $set: { logistics: `${regno},${currentlocation}`, code: `Share this code with our Driver ${code}` } });
+        const update2 = await booklogistics.booklogistics.updateOne({ _id: currentid }, { $set: { status } });
+        if (accept.modifiedCount > 0 && update2.modifiedCount > 0) {
+            res.status(200).json({ message: 'Success' });
+        } else {
+            res.status(400).json({ message: 'Error' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
+app.post('/acceptorder', (req, res) => updateOrderStatus(req, res, 'Accepted'));
+app.post('/rejectorder', (req, res) => updateOrderStatus(req, res, 'Rejected'));
+app.post('/recievedorder', (req, res) => updateOrderStatus(req, res, 'Delivered'));
+
+// Set user status (online/offline)
+const setStatus = async (req, res, status) => {
+    const { _id } = req.body;
+    try {
+        const update = await loginservices.loginservices.updateOne({ _id }, { $set: { available: status } });
+        if (update.modifiedCount > 0) {
+            res.status(200).json({ message: 'Success' });
+        } else {
+            res.status(400).json({ message: 'Error' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
+app.post('/setonline', (req, res) => setStatus(req, res, true));
+app.post('/setoffline', (req, res) => setStatus(req, res, false));
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});

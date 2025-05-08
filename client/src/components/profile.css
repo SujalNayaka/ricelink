@@ -1,46 +1,46 @@
-.userdata{
+.userdata {
     display: flex;
-        align-items: flex-start;
-        justify-content: space-evenly;
-        width: 100vw;
-        height: auto;
-        border-radius: 10px;
-        font-family: 'Inter';
-        font-size: 1.4vw;
-        width: 90vw;
-        margin: auto;
-        flex-direction: column;
-        top: 3vw;
-        position: relative;
-        margin-bottom: 5vw;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 90vw;  /* Set width to 90vw */
+    height: auto;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-size: 1.4vw;
+    margin: auto;
+    flex-direction: column;
+    top: 3vw;
+    position: relative;
+    margin-bottom: 5vw;
 }
-.user{
+
+.user {
     margin: 0.4vw;
 }
 
-.paymenthistory{
+.paymenthistory {
     font-family: 'Inter';
     font-size: 1.5vw;
     width: 100vw;
     text-align: center;
 }
 
-.payments{
+.payments {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    width: 100vw;
+    width: 80vw;  /* Set width to 80vw */
     height: auto;
     border-radius: 10px;
     font-family: 'Inter';
     font-size: 1.4vw;
-    width: 80vw;
     margin: auto;
     flex-direction: column;
     top: 3vw;
     position: relative;
 }
-.paymentdet{
+
+.paymentdet {
     margin: 0.5vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -48,38 +48,42 @@
     box-sizing: border-box;
     padding: 5px;
 }
-.paydet{
+
+.paydet {
     margin: 0.2vw;
 }
 
-@media screen and (min-width: 300px) {
-    @media screen and (max-width: 600px) {
-        .userdata{
-            font-size: 3.5vw;
-            margin-bottom: 10vw;
-        }
-        .paymenthistory{
-            font-size: 4vw;
-            font-weight: 600;
-            margin-bottom: 2vw;
-        }
-        .paymentdet{
-            font-size: 3.5vw;
-        }
-    }}
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    .userdata {
+        font-size: 3.5vw;
+        margin-bottom: 10vw;
+    }
 
-    @media screen and (min-width:760px) {
-        @media screen and (max-width:1024px) {
-            .userdata{
-                font-size: 3.5vw;
-                margin-bottom: 10vw;
-            }
-            .paymenthistory{
-                font-size: 4vw;
-                font-weight: 600;
-                margin-bottom: 2vw;
-            }
-            .paymentdet{
-                font-size: 3.5vw;
-            }
-        }}
+    .paymenthistory {
+        font-size: 4vw;
+        font-weight: 600;
+        margin-bottom: 2vw;
+    }
+
+    .paymentdet {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1024px) {
+    .userdata {
+        font-size: 3.5vw;
+        margin-bottom: 10vw;
+    }
+
+    .paymenthistory {
+        font-size: 4vw;
+        font-weight: 600;
+        margin-bottom: 2vw;
+    }
+
+    .paymentdet {
+        font-size: 3.5vw;
+    }
+}

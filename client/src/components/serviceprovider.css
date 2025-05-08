@@ -1,25 +1,21 @@
-.heading{
+.heading {
     font-size: 3vw;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    /* text-align: center; */
     margin: 5vw auto;
-    color: 	#1F2937;
-    display: flex
-    ;
-        align-items: center;
-        justify-content: flex-start;
+    color: #1F2937;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.heading h4{
+.heading h4 {
     margin: 1vw;
-    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
-.heading h6{
+
+.heading h6 {
     margin: 0;
-    /* color: #6bd9a6; */
     color: #00BFFF;
-    /* animation: fadein 1s 1 ease-in-out linear; */
     animation-name: fadein;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
@@ -28,30 +24,31 @@
 }
 
 @keyframes fadein {
-    0%{
+    0% {
         opacity: 0;
         top: 2vw;
     }
-    100%{
-        opacity:1;
+    100% {
+        opacity: 1;
         top: 0vw;
     }
 }
 
-.personaldata{
+.personaldata {
     display: flex;
-        align-items: flex-start;
-        justify-content: space-evenly;
-        width: 100vw;
-        height: auto;
-        border-radius: 10px;
-        font-family: 'Inter';
-        font-size: 1.4vw;
-        width: 90vw;
-        margin: auto;
-        flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: auto;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-size: 1.4vw;
+    width: 90vw;
+    margin: auto;
+    flex-direction: column;
 }
-.orders{
+
+.orders {
     position: relative;
     margin: auto;
     width: 90vw;
@@ -61,7 +58,7 @@
     text-align: center;
 }
 
-.order{
+.order {
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -72,27 +69,27 @@
     background-color: #f0f0f0;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   box-sizing: border-box;
-   margin-top: 2vw;
-   font-size: 1.3vw;
-   font-family: 'Inter';
+    box-sizing: border-box;
+    margin-top: 2vw;
+    font-size: 1.3vw;
+    font-family: 'Inter';
 }
 
-.order h3{
+.order h3 {
     margin: 10px 0;
     font-family: 'Inter';
     font-weight: 300;
     font-size: 1.2vw;
 }
 
-.order h2{
+.order h2 {
     margin: 10px 0;
     font-family: 'Inter';
     font-size: 1.4vw;
     font-weight: 500;
 }
 
-.order button{
+.order button {
     color: black;
     font-family: 'Inter';
     font-weight: 500;
@@ -103,31 +100,30 @@
     border: none;
     font-size: 1.2vw;
     box-sizing: border-box;
-    padding: 5px;
     background-color: #6bd9a6;
-   
 }
-.order button:hover{
+
+.order button:hover {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
 }
 
-.buttons{
+.buttons {
     display: flex;
-        width: 30%;
-        justify-content: space-between;
+    width: 30%;
+    justify-content: space-between;
 }
 
-.accept{
-    background-color: #6EE7B7; 
+.accept {
+    background-color: #6EE7B7;
 }
 
-.reject{
-    background-color:  #ff6868;
+.reject {
+    background-color: #ff6868;
 }
 
-.note{
+.note {
     margin: auto;
     position: relative;
     width: fit-content;
@@ -137,28 +133,20 @@
     margin-bottom: 1vw;
 }
 
-
-.milldet{
+.milldet {
     box-sizing: border-box;
     padding: 5px;
     margin-bottom: 1vw;
-    /* width: 50vw; */
     width: 35vw;
-    button{
-        margin-left: 1vw;
-    }
 }
 
-.milldet:hover{
-  background-color: #00BFFF;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+.milldet:hover {
+    background-color: #00BFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-
-#online{
+#online {
     box-sizing: border-box;
     padding: 5px;
     border-radius: 5px;
@@ -167,24 +155,29 @@
     font-family: 'Inter';
     font-size: 1.2vw;
 }
-#online:hover{
-   transform: translateY(-4px);
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+#online:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.editarea{
+
+.editarea {
     display: none;
-        width: 100%;
-        justify-content: flex-start;
-        margin-top: 1.5vw;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1.5vw;
 }
-.editarea.open{
+
+.editarea.open {
     display: flex;
 }
-.editarea input{
+
+.editarea input {
     width: 50%;
     margin-right: 1vw;
 }
-.editbtns{
+
+.editbtns {
     box-sizing: border-box;
     padding: 5px;
     border-radius: 5px;
@@ -195,7 +188,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logistics{
+.logistics {
     font-size: 2vw;
     font-family: 'Inter';
     font-weight: 500;
@@ -205,24 +198,26 @@
     top: 5vw;
     width: 100%;
     height: 30vw;
-    background-color: white
-    ;
+    max-height: 60vh;
+    background-color: white;
     left: 5vw;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.logisticshead{
+
+.logisticshead {
     display: flex;
-        align-items: center;
-        width: 90%;
-        justify-content: space-between;
-        margin: auto;
-        padding: 10px;
-        box-sizing: border-box;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
 }
-.logisticdet{
+
+.logisticdet {
     margin: 0.5vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 98%;
@@ -232,74 +227,73 @@
     font-size: 1.2vw;
     font-family: 'Inter';
     display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-around;
-    
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
 }
-.logidet{
+
+.logidet {
     margin: 0.2vw;
 }
-@media screen and (min-width: 300px) {
-    @media screen and (max-width: 600px) {
-        .order{
-            font-size: 3vw;
-        }
-        .heading{
-            font-size: 6vw;
-            margin: 10vw auto;
-        }
-        .note{
-            font-size: 3.5vw;
-        }
-        .personaldata{
-            font-size: 3.5vw;
-        }
-        .milldet{
-            width: 100%;
-        }
-        .editbtns{
-            font-size: 3vw;
-        }
-        #online{
-            font-size: 3.2vw;
-        }
-        .order h3{
-            font-size: 3.5vw;
-        }
-        .order h2{
-            font-size: 3.5vw;
-        }
-    }}
 
-    @media screen and (min-width:760px) {
-        @media screen and (max-width:1024px) {
-            .order{
-                font-size: 3vw;
-            }
-            .heading{
-                font-size: 6vw;
-                margin: 10vw auto;
-            }
-            .note{
-                font-size: 3.5vw;
-            }
-            .personaldata{
-                font-size: 3.5vw;
-            }
-            .milldet{
-                width: 100%;
-            }
-            .editbtns{
-                font-size: 3vw;
-            }
-            #online{
-                font-size: 3.2vw;
-            }
-            .order h3{
-                font-size: 3.5vw;
-            }
-            .order h2{
-                font-size: 3.5vw;
-            }
-        }}
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .order {
+        font-size: 3vw;
+    }
+    .heading {
+        font-size: 6vw;
+        margin: 10vw auto;
+    }
+    .note {
+        font-size: 3.5vw;
+    }
+    .personaldata {
+        font-size: 3.5vw;
+    }
+    .milldet {
+        width: 100%;
+    }
+    .editbtns {
+        font-size: 3vw;
+    }
+    #online {
+        font-size: 3.2vw;
+    }
+    .order h3 {
+        font-size: 3.5vw;
+    }
+    .order h2 {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1024px) {
+    .order {
+        font-size: 3vw;
+    }
+    .heading {
+        font-size: 6vw;
+        margin: 10vw auto;
+    }
+    .note {
+        font-size: 3.5vw;
+    }
+    .personaldata {
+        font-size: 3.5vw;
+    }
+    .milldet {
+        width: 100%;
+    }
+    .editbtns {
+        font-size: 3vw;
+    }
+    #online {
+        font-size: 3.2vw;
+    }
+    .order h3 {
+        font-size: 3.5vw;
+    }
+    .order h2 {
+        font-size: 3.5vw;
+    }
+}

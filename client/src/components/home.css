@@ -1,16 +1,14 @@
-
-body{
+body {
     margin: 0;
     padding: 0;
-   overflow-x: hidden;   
-   /* background-color: #121212;  */
+    overflow-x: hidden;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
     display: none;
 }
 
-.success{
-  
+.success {
     margin: auto;
     text-align: center;
     font-size: 1.3vw;
@@ -18,7 +16,7 @@ body::-webkit-scrollbar{
     font-family: 'Inter';
 }
 
-#success{
+#success {
     width: 40vw;
     font-weight: 500;
     font-size: 1.2vw;
@@ -37,35 +35,33 @@ body::-webkit-scrollbar{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#failure{
+#failure {
     background-color: #ff6868;
     width: 100vw;
     top: 5vw;
-
 }
 
-#signinwarn{
+#signinwarn {
     background-color: #ff6868;
-    width: 100vw; 
+    width: 100vw;
 }
 
-.search{
+.search {
     display: flex;
-        width: 90vw;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-        margin-bottom: 2vw;
-        flex-direction: column;
+    width: 90vw;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 2vw;
+    flex-direction: column;
 }
 
-.search input{
+.search input {
     width: 40%;
     margin-bottom: 2vw;
-
 }
 
-.milldatas{
+.milldatas {
     width: 40%;
     margin: auto;
     box-sizing: border-box;
@@ -73,29 +69,32 @@ body::-webkit-scrollbar{
     border-radius: 10px;
     font-family: 'Inter';
     font-size: 1.2vw;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.milldetails{
+.milldetails {
     width: 70%;
 }
-.milldata{
+
+.milldata {
     margin: 0.5vw;
 }
 
-.bidding{
+.bidding {
     width: 40%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.bidding input{
+
+.bidding input {
     width: 50%;
 }
-.bidding button{
+
+.bidding button {
     color: black;
     font-family: 'Inter';
     font-weight: 500;
@@ -106,36 +105,37 @@ body::-webkit-scrollbar{
     border: none;
     font-size: 1.2vw;
     box-sizing: border-box;
-    padding: 5px;
-   background-color: #00BFFF;
-   width: 20%;
+    background-color: #00BFFF;
+    width: 20%;
 }
 
-.bidding button:hover{
+.bidding button:hover {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
 }
 
-
-.whyus{
+.whyus {
     width: 80%;
     margin: auto;
     height: auto;
     margin-top: 6vw;
     font-family: 'Inter';
 }
-.whyus h4{
+
+.whyus h4 {
     margin: 0;
     font-size: 2vw;
 }
-.whyus h6{
+
+.whyus h6 {
     margin: 1vw 0px;
     font-size: 1.5vw;
     color: #6bd9a6;
     font-weight: 300;
 }
-.whyusdet{
+
+.whyusdet {
     width: 100%;
     height: auto;
     display: grid;
@@ -155,7 +155,7 @@ body::-webkit-scrollbar{
     padding: 10px;
 }
 
-.whyuscontainer{
+.whyuscontainer {
     height: 100%;
     width: 90%;
     border-radius: 10px;
@@ -165,114 +165,112 @@ body::-webkit-scrollbar{
     justify-content: space-between;
     box-sizing: border-box;
     padding: 10px;
-
 }
 
-.whyuscontainer:hover{
+.whyuscontainer:hover {
     background-color: #b8ffe3;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease-in-out;
     transform: translateY(-4px);
-    
 }
 
-.whyustext{
+.whyustext {
     font-weight: 500;
 }
 
-.whyusdesc{
+.whyusdesc {
     font-weight: 300;
 }
 
-.whyusimg{
+.whyusimg {
     width: 100%;
     height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px
-}
-.whyusimg img{
-    width: 98%;
-    height: 98%;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
-   
-       
+.whyusimg img {
+    width: 98%;
+    height: 98%;
+    border-radius: 5px;
+}
 
 @media screen and (min-width: 300px) {
     @media screen and (max-width: 600px) {
-        .success{
+        .success {
             font-size: 4vw;
         }
-        #success{
+        #success {
             top: 10vw;
             font-size: 4vw;
         }
-        #failure{
+        #failure {
             top: 10vw;
             font-size: 4vw;
         }
-        .search{
+        .search {
             flex-direction: column;
         }
-        .search input{
+        .search input {
             width: 100%;
             margin-bottom: 2vw;
         }
-        .milldatas{
+        .milldatas {
             align-items: flex-start;
             flex-direction: column;
             justify-content: space-evenly;
             width: 90%;
             font-size: 4vw;
         }
-        .milldetails{
+        .milldetails {
             width: 100%;
         }
-        .bidding{
+        .bidding {
             width: 100%;
         }
-        .bidding button{
+        .bidding button {
             font-size: 4vw;
         }
-    }}
+    }
+}
 
-    @media screen and (min-width:760px) {
-        @media screen and (max-width:1024px) {
-            .success{
-                font-size: 4vw;
-            }
-            #success{
-                top: 10vw;
-                font-size: 4vw;
-            }
-            #failure{
-                top: 10vw;
-                font-size: 4vw;
-            }
-            .search{
-                flex-direction: column;
-            }
-            .search input{
-                width: 100%;
-                margin-bottom: 2vw;
-            }
-            .milldatas{
-                align-items: flex-start;
-                flex-direction: column;
-                justify-content: space-evenly;
-                width: 90%;
-                font-size: 4vw;
-            }
-            .milldetails{
-                width: 100%;
-            }
-            .bidding{
-                width: 100%;
-            }
-            .bidding button{
-                font-size: 4vw;
-            }
-        }}    
+@media screen and (min-width: 760px) {
+    @media screen and (max-width: 1024px) {
+        .success {
+            font-size: 4vw;
+        }
+        #success {
+            top: 10vw;
+            font-size: 4vw;
+        }
+        #failure {
+            top: 10vw;
+            font-size: 4vw;
+        }
+        .search {
+            flex-direction: column;
+        }
+        .search input {
+            width: 100%;
+            margin-bottom: 2vw;
+        }
+        .milldatas {
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 90%;
+            font-size: 4vw;
+        }
+        .milldetails {
+            width: 100%;
+        }
+        .bidding {
+            width: 100%;
+        }
+        .bidding button {
+            font-size: 4vw;
+        }
+    }
+}
